@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Responsive Online Calculator Tool - Fast & Free</title>
+    <meta name="description" content="A simple, fast, and responsive online calculator for basic arithmetic. Easy to use on desktop, tablet, and mobile.">
+    <link rel="canonical" href="https://www.yourdomain.com/calculator-tool/">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_PUB_ID"
+     crossorigin="anonymous"></script>
+
+    <style>
+        /* CSS STYLES */
+        /* RESET & GLOBALS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 90%; /* Default for mobile */
+            max-width: 900px; /* Max width for desktop */
+            padding: 20px 0;
+            flex-grow: 1;
+        }
+
+        /* ADVERTISEMENT STYLES */
+        .ad-unit {
+            margin: 20px auto;
+            width: 100%;
+            background-color: #e0e0e0;
+            min-height: 100px; 
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+
+        /* CALCULATOR STYLES */
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 400px; /* Constrain the calculator size */
+        }
+
+        #display {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-size: 2.5em; /* Large text for mobile visibility */
+            text-align: right;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 15px 0;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            user-select: none;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-number {
+            background-color: #e9ecef;
+        }
+
+        .btn-operator {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .btn-clear {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-equals {
+            background-color: #28a745;
+            color: white;
+            grid-row: span 2; 
+            grid-column: 4 / 5;
+        }
+
+        .span-2 {
+            grid-column: span 2;
+        }
+
+        /* FOOTER */
+        footer {
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.8em;
+            background-color: #333;
+            color: #ccc;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* MEDIA QUERY FOR TABLET AND DESKTOP */
+        @media (min-width: 768px) {
+            .calculator {
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+
+            #display {
+                font-size: 3em;
+            }
+
+            .btn {
+                padding: 20px 0;
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WebCalc Pro</h1>
+        <p>Your reliable online calculator for quick math.</p>
+    </header>
+
+    <main class="container">
+        <div class="ad-unit top-ad">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="YOUR_ADSENSE_PUB_ID" 
+                 data-ad-slot="YOUR_AD_UNIT_ID_1" 
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="calculator">
+            <input type="text" id="display" readonly value="0">
+            <div class="buttons">
+                <button class="btn btn-clear">C</button>
+                <button class="btn btn-operator" data-value="/">&divide;</button>
+                <button class="btn btn-operator" data-value="*">&times;</button>
+                <button class="btn btn-operator" data-value="backspace">&#9003;</button>
+                
+                <button class="btn btn-number" data-value="7">7</button>
+                <button class="btn btn-number" data-value="8">8</button>
+                <button class="btn btn-number" data-value="9">9</button>
+                <button class="btn btn-operator" data-value="-">-</button>
+                
+                <button class="btn btn-number" data-value="4">4</button>
+                <button class="btn btn-number" data-value="5">5</button>
+                <button class="btn btn-number" data-value="6">6</button>
+                <button class="btn btn-operator" data-value="+">+</button>
+                
+                <button class="btn btn-number" data-value="1">1</button>
+                <button class="btn btn-number" data-value="2">2</button>
+                <button class="btn btn-number" data-value="3">3</button>
+                <button class="btn btn-equals">=</button>
+                
+                <button class="btn btn-number span-2" data-value="0">0</button>
+                <button class="btn btn-number" data-value=".">.</button>
+            </div>
+        </div>
+        
+        <div class="ad-unit bottom-ad">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="YOUR_ADSENSE_PUB_ID" 
+                 data-ad-slot="YOUR_AD_UNIT_ID_2" 
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 WebCalc Pro | <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // JAVASCRIPT LOGIC
+        document.addEventListener('DOMContentLoaded', () => {
+            const display = document.getElementById('display');
+            const buttons = document.querySelectorAll('.btn');
+            let currentInput = '';
+            let operator = null;
+            let previousValue = null;
+
+            // Function to update the display
+            const updateDisplay = (value) => {
+                // Ensure display doesn't overflow
+                if (value.length > 15) {
+                    display.value = value.substring(0, 15) + '...';
+                } else {
+                    display.value = value || '0'; // Default to '0' if empty
+                }
+            };
+
+            // Core calculation logic
+            const calculate = () => {
+                if (!operator || previousValue === null || currentInput === '') {
+                    return;
+                }
+
+                let result = 0;
+                const prev = parseFloat(previousValue);
+                const current = parseFloat(currentInput);
+
+                // Simple switch for basic arithmetic
+                switch (operator) {
+                    case '+':
+                        result = prev + current;
+                        break;
+                    case '-':
+                        result = prev - current;
+                        break;
+                    case '*':
+                        result = prev * current;
+                        break;
+                    case '/':
+                        if (current === 0) {
+                            alert('Cannot divide by zero!');
+                            clearAll();
+                            return;
+                        }
+                        result = prev / current;
+                        break;
+                    default:
+                        return;
+                }
+
+                // Reset state for the next operation
+                currentInput = String(result);
+                previousValue = null;
+                operator = null;
+                updateDisplay(currentInput);
+            };
+
+            // Clear function
+            const clearAll = () => {
+                currentInput = '';
+                previousValue = null;
+                operator = null;
+                updateDisplay('0');
+            };
+
+            // Main button handler
+            buttons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const value = e.target.getAttribute('data-value') || e.target.innerText;
+
+                    if (e.target.classList.contains('btn-number') || value === '.') {
+                        // Handle numbers and decimal point
+                        if (currentInput.includes('.') && value === '.') return; // Avoid multiple decimals
+                        if (currentInput === '0' && value !== '.') currentInput = ''; // Remove leading zero
+                        currentInput += value;
+                        updateDisplay(currentInput);
+
+                    } else if (e.target.classList.contains('btn-operator')) {
+                        // Handle operators
+                        if (value === 'backspace') {
+                            currentInput = currentInput.slice(0, -1);
+                            updateDisplay(currentInput);
+                            return;
+                        }
+                        
+                        if (previousValue !== null && currentInput !== '') {
+                            // Chain operations (e.g., 5 + 3 + 2)
+                            calculate(); 
+                            previousValue = currentInput;
+                            operator = value;
+                            currentInput = '';
+                        } else if (currentInput !== '') {
+                            previousValue = currentInput;
+                            operator = value;
+                            currentInput = '';
+                        }
+                        
+                    } else if (e.target.classList.contains('btn-equals')) {
+                        // Handle equals
+                        calculate();
+                        
+                    } else if (e.target.classList.contains('btn-clear')) {
+                        // Handle clear
+                        clearAll();
+                    }
+                });
+            });
+
+            // Initialize display
+            updateDisplay('0');
+        });
+    </script>
+</body>
+</html>
